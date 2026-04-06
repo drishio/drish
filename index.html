@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>200 OK</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Helvetica Neue', 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #fff;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        .status {
+            text-align: right;
+            color: #444;
+            font-weight: 300;
+            line-height: 0.85;
+        }
+        .status .code {
+            font-size: 180px;
+            display: block;
+        }
+        .status .text {
+            font-size: 180px;
+            display: block;
+        }
+        .puppy img {
+            height: 340px;
+            mix-blend-mode: multiply;
+            mask-image: linear-gradient(to bottom, #000 85%, transparent 100%), linear-gradient(to right, #000 80%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, #000 85%, transparent 100%), linear-gradient(to right, #000 80%, transparent 100%);
+            mask-composite: intersect;
+            -webkit-mask-composite: destination-in;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="status">
+            <span class="code">200</span>
+            <span class="text">OK</span>
+        </div>
+        <div class="puppy">
+            <img src="puppy.png" alt="Good boy">
+        </div>
+    </div>
+</body>
+</html>
