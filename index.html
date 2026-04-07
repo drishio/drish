@@ -41,6 +41,22 @@
             mask-composite: intersect;
             -webkit-mask-composite: destination-in;
         }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .status {
+                text-align: center;
+            }
+            .status .code,
+            .status .text {
+                font-size: 80px;
+            }
+            .puppy img {
+                height: 200px;
+            }
+        }
     </style>
 </head>
 <body>
