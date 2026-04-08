@@ -29,12 +29,26 @@
             text-align: center;
             padding: 0 24px;
             line-height: 1.5;
+            height: 4em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .tagline span {
+        .tagline .text {
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+        .tagline .text.visible {
+            opacity: 1;
+        }
+        .tagline .text span {
             white-space: nowrap;
         }
         @media (max-width: 480px) {
-            .tagline span {
+            .tagline {
+                height: 6em;
+            }
+            .tagline .text span {
                 display: block;
                 margin-bottom: 8px;
             }
@@ -46,6 +60,41 @@
         <rect x="100" y="100" width="2871" height="2867" rx="300" ry="300" fill="rgb(0,128,255)"/>
         <text x="1535" y="1533" dominant-baseline="central" text-anchor="middle" style="font-family:'Helvetica Neue','Helvetica',sans-serif;font-weight:700;font-size:1800px;fill:white;">d</text>
     </svg>
-    <p class="tagline"><span>Steps become paths.</span> <span>Paths become routes.</span> <span>Drish guides the way.</span></p>
+    <div class="tagline">
+        <div class="text visible" id="tagline"></div>
+    </div>
+    <script>
+        const taglines = [
+            ["Steps become paths.", "Paths become routes.", "Drish guides the way."],
+            ["कदम राहें बनते हैं।", "राहें मार्ग बनती हैं।", "दृश् मार्ग दर्शाता है।"],
+            ["Los pasos se hacen caminos.", "Los caminos se hacen rutas.", "Drish guía el camino."],
+            ["步伐成为路径。", "路径成为路线。", "Drish 引领方向。"],
+            ["Les pas deviennent des chemins.", "Les chemins deviennent des routes.", "Drish montre la voie."],
+            ["一歩が道となり、", "道が旅路となる。", "Drish が導く。"],
+            ["걸음이 길이 된다.", "길이 여정이 된다.", "Drish가 길을 안내한다."],
+            ["পদক্ষেপ পথ হয়।", "পথ মার্গ হয়।", "দৃশ্ মার্গ দর্শায়।"],
+            ["الخطوات تصبح مسارات.", "المسارات تصبح طرق.", "دريش يرشد الطريق."],
+            ["Passos se tornam caminhos.", "Caminhos se tornam rotas.", "Drish guia o caminho."],
+            ["Schritte werden Wege.", "Wege werden Routen.", "Drish weist den Weg."],
+            ["Шаги становятся путями.", "Пути становятся маршрутами.", "Drish указывает путь."],
+            ["Langkah menjadi jalan.", "Jalan menjadi rute.", "Drish menunjukkan arah."],
+            ["Adımlar yol olur.", "Yollar rota olur.", "Drish yolu gösterir."],
+            ["पावलं वाटा होतात.", "वाटा मार्ग होतात.", "दृश् मार्ग दर्शवतो."],
+            ["પગલાં રસ્તા બને.", "રસ્તા માર્ગ બને.", "દૃશ્ માર્ગ દર્શાવે."]
+        ];
+        let i = 0;
+        const el = document.getElementById('tagline');
+        function show() {
+            const t = taglines[i];
+            el.innerHTML = '<span>' + t[0] + '</span> <span>' + t[1] + '</span> <span>' + t[2] + '</span>';
+            el.classList.add('visible');
+        }
+        function cycle() {
+            el.classList.remove('visible');
+            setTimeout(() => { i = (i + 1) % taglines.length; show(); }, 800);
+        }
+        show();
+        setInterval(cycle, 4000);
+    </script>
 </body>
 </html>
