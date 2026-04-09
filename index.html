@@ -17,10 +17,30 @@
             background: #fff;
             color: #333;
         }
+        .brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
         .emblem {
             width: 80px;
             height: 80px;
-            margin-bottom: 32px;
+            margin-bottom: 12px;
+        }
+        .brand-name {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            color: #333;
+            margin-bottom: 4px;
+        }
+        .brand-sub {
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            color: #999;
+            text-transform: uppercase;
         }
         .tagline {
             font-size: 20px;
@@ -56,10 +76,14 @@
     </style>
 </head>
 <body>
-    <svg class="emblem" viewBox="0 0 3071 3067" xmlns="http://www.w3.org/2000/svg">
-        <rect x="100" y="100" width="2871" height="2867" rx="300" ry="300" fill="rgb(0,128,255)"/>
-        <text x="1535" y="1533" dominant-baseline="central" text-anchor="middle" style="font-family:'Helvetica Neue','Helvetica',sans-serif;font-weight:700;font-size:1800px;fill:white;">d</text>
-    </svg>
+    <div class="brand">
+        <svg class="emblem" viewBox="0 0 3071 3067" xmlns="http://www.w3.org/2000/svg">
+            <rect x="100" y="100" width="2871" height="2867" rx="300" ry="300" fill="rgb(0,128,255)"/>
+            <text x="1535" y="1533" dominant-baseline="central" text-anchor="middle" style="font-family:'Helvetica Neue','Helvetica',sans-serif;font-weight:700;font-size:1800px;fill:white;">d</text>
+        </svg>
+        <div class="brand-name">Drish</div>
+        <div class="brand-sub">Steps. Paths. Routes.</div>
+    </div>
     <div class="tagline">
         <div class="text visible" id="tagline"></div>
     </div>
