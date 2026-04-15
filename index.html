@@ -1,125 +1,333 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drish</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: #fff;
-            color: #333;
-        }
-        .brand {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 40px;
-        }
-        .logo {
-            width: 200px;
-            height: 200px;
-            margin-bottom: 12px;
-        }
-        .brand-sub {
-            font-size: 14px;
-            font-weight: 400;
-            letter-spacing: 0.15em;
-            color: #999;
-            text-transform: uppercase;
-        }
-        .tagline {
-            font-size: 20px;
-            font-weight: 300;
-            letter-spacing: 0.02em;
-            text-align: center;
-            padding: 0 24px;
-            line-height: 1.5;
-            height: 4em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .tagline .text {
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out;
-        }
-        .tagline .text.visible {
-            opacity: 1;
-        }
-        .tagline .text span {
-            white-space: nowrap;
-        }
-        @media (max-width: 480px) {
-            .tagline {
-                height: 6em;
-            }
-            .tagline .text span {
-                display: block;
-                margin-bottom: 8px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  (function(){var h=document.documentElement,s=localStorage.getItem('drish-theme');if(s==='dark'||(!s&&window.matchMedia('(prefers-color-scheme: dark)').matches))h.classList.add('dark')})();
+</script>
+<title>Drish — Enterprise Integrations. Finally Democratized.</title>
+<meta name="description" content="Drish is a managed integration platform powered by Apache NiFi. Bring your NiFi flows or start fresh. Self-serve, affordable, runs anywhere. Enterprise integrations without the enterprise price tag.">
+<meta name="keywords" content="Apache NiFi, managed NiFi, NiFi hosting, NiFi as a service, data integration, iPaaS, ETL, data pipelines, managed integration platform, NiFi alternative, NiFi cloud, enterprise integration">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="canonical" href="https://drish.io/">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://drish.io/">
+<meta property="og:title" content="Drish — Enterprise Integrations. Finally Democratized.">
+<meta property="og:description" content="Managed integration platform powered by Apache NiFi. Bring your NiFi flows or start fresh. Self-serve, affordable, runs anywhere.">
+<meta property="og:site_name" content="Drish">
+<meta property="og:image" content="https://drish.io/og-image.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Drish — Enterprise Integrations. Finally Democratized.">
+<meta name="twitter:description" content="Managed integration platform powered by Apache NiFi. Bring your NiFi flows or start fresh.">
+<meta name="twitter:image" content="https://drish.io/og-image.png">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Drish",
+  "url": "https://drish.io",
+  "description": "Drish is a managed integration platform powered by Apache NiFi. Enterprise integrations, finally democratized. Bring your NiFi flows or start fresh.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web, Docker",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "description": "Free tier available"
+  },
+  "creator": {
+    "@type": "Organization",
+    "name": "345 Consulting, LLC",
+    "url": "https://345consulting.llc"
+  }
+}
+</script>
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  /* Light theme (default) */
+  :root {
+    --bg: #ffffff;
+    --bg-input: #f5f5f5;
+    --text: #333;
+    --text-heading: #111;
+    --text-muted: #999;
+    --text-subtle: #bbb;
+    --border: #ddd;
+    --btn-bg: #111;
+    --btn-text: #fff;
+    --btn-hover: #333;
+    --link: #666;
+    --link-hover: #111;
+    --focus: #0080ff;
+    --footer: #ccc;
+    --emblem-bg: rgb(0,128,255);
+  }
+
+  /* Dark theme */
+  html.dark {
+    --bg: #0a0a0a;
+    --bg-input: #1a1a1a;
+    --text: #e0e0e0;
+    --text-heading: #fff;
+    --text-muted: #666;
+    --text-subtle: #555;
+    --border: #333;
+    --btn-bg: #e0e0e0;
+    --btn-text: #0a0a0a;
+    --btn-hover: #fff;
+    --link: #888;
+    --link-hover: #fff;
+    --focus: #0080ff;
+    --footer: #333;
+    --emblem-bg: rgb(0,128,255);
+  }
+
+  body {
+    font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.3s, color 0.3s;
+  }
+
+  /* Top bar */
+  header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 32px;
+  }
+
+  header a {
+    color: var(--link);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+
+  header a:hover {
+    color: var(--link-hover);
+  }
+
+  .theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: var(--text-muted);
+    transition: color 0.2s;
+    padding: 0;
+    line-height: 1;
+  }
+
+  .theme-toggle:hover {
+    color: var(--link-hover);
+  }
+
+  /* Center content */
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 24px 40px;
+  }
+
+  /* Emblem */
+  .emblem {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 40px;
+  }
+
+  /* Headline */
+  h1 {
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    text-align: center;
+    color: var(--text-heading);
+    margin-bottom: 12px;
+  }
+
+  /* Powered by */
+  .powered-by {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-bottom: 48px;
+    text-align: center;
+  }
+
+  .powered-by a {
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .powered-by a:hover {
+    color: var(--link-hover);
+  }
+
+  /* Form */
+  .cta-form {
+    display: flex;
+    max-width: 480px;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .cta-form input[type="email"] {
+    flex: 1;
+    padding: 14px 18px;
+    font-size: 15px;
+    font-family: inherit;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-right: none;
+    border-radius: 6px 0 0 6px;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s, background 0.3s;
+  }
+
+  .cta-form input[type="email"]::placeholder {
+    color: var(--text-subtle);
+  }
+
+  .cta-form input[type="email"]:focus {
+    border-color: var(--focus);
+  }
+
+  .cta-form button {
+    padding: 14px 24px;
+    font-size: 13px;
+    font-family: inherit;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    border: 1px solid var(--btn-bg);
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .cta-form button:hover {
+    background: var(--btn-hover);
+  }
+
+  /* Subtext */
+  .subtext {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    text-align: center;
+  }
+
+  /* Sign in */
+  .sign-in {
+    font-size: 14px;
+    color: var(--text-muted);
+    text-align: center;
+  }
+
+  .sign-in a {
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .sign-in a:hover {
+    color: var(--link-hover);
+  }
+
+  /* Footer */
+  footer {
+    padding: 24px 32px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--footer);
+  }
+
+  /* Mobile */
+  @media (max-width: 520px) {
+    h1 { font-size: 26px; }
+    .emblem { width: 96px; height: 96px; margin-bottom: 32px; }
+    .cta-form { flex-direction: column; }
+    .cta-form input[type="email"] {
+      border-right: 1px solid var(--border);
+      border-radius: 6px 6px 0 0;
+    }
+    .cta-form button {
+      border-radius: 0 0 6px 6px;
+    }
+  }
+</style>
 </head>
 <body>
-    <div class="brand">
-        <svg class="logo" viewBox="0 0 3071 3067" xmlns="http://www.w3.org/2000/svg">
-            <rect x="100" y="100" width="2871" height="2867" rx="300" ry="300" fill="rgb(0,128,255)"/>
-            <text x="1535" y="1533" dominant-baseline="central" text-anchor="middle" style="font-family:'Helvetica Neue','Helvetica',sans-serif;font-weight:700;font-size:850px;fill:white;letter-spacing:40px;">drish</text>
-        </svg>
-        <div class="brand-sub">steps → paths → routes</div>
-    </div>
-    <div class="tagline">
-        <div class="text visible" id="tagline"></div>
-    </div>
-    <script>
-        const taglines = [
-            ["Steps become paths.", "Paths become routes.", "Drish guides the way."],
-            ["कदम राहें बनते हैं।", "राहें मार्ग बनती हैं।", "दृश् मार्ग दर्शाता है।"],
-            ["Los pasos se hacen caminos.", "Los caminos se hacen rutas.", "Drish guía el camino."],
-            ["步伐成为路径。", "路径成为路线。", "Drish 引领方向。"],
-            ["Les pas deviennent des chemins.", "Les chemins deviennent des routes.", "Drish montre la voie."],
-            ["一歩が道となり、", "道が旅路となる。", "Drish が導く。"],
-            ["걸음이 길이 된다.", "길이 여정이 된다.", "Drish가 길을 안내한다."],
-            ["পদক্ষেপ পথ হয়।", "পথ মার্গ হয়।", "দৃশ্ মার্গ দর্শায়।"],
-            ["الخطوات تصبح مسارات.", "المسارات تصبح طرق.", "دريش يرشد الطريق."],
-            ["Passos se tornam caminhos.", "Caminhos se tornam rotas.", "Drish guia o caminho."],
-            ["Schritte werden Wege.", "Wege werden Routen.", "Drish weist den Weg."],
-            ["Шаги становятся путями.", "Пути становятся маршрутами.", "Drish указывает путь."],
-            ["Langkah menjadi jalan.", "Jalan menjadi rute.", "Drish menunjukkan arah."],
-            ["Adımlar yol olur.", "Yollar rota olur.", "Drish yolu gösterir."],
-            ["पावलं वाटा होतात.", "वाटा मार्ग होतात.", "दृश् मार्ग दर्शवतो."],
-            ["પગલાં રસ્તા બને.", "રસ્તા માર્ગ બને.", "દૃશ્ માર્ગ દર્શાવે."],
-            ["அடிகள் பாதைகளாகின்றன.", "பாதைகள் வழிகளாகின்றன.", "Drish வழிகாட்டுகிறது."],
-            ["ก้าวกลายเป็นทาง.", "ทางกลายเป็นเส้นทาง.", "Drish นำทาง."],
-            ["Bước chân thành lối đi.", "Lối đi thành tuyến đường.", "Drish dẫn lối."],
-            ["Hatua zinakuwa njia.", "Njia zinakuwa safari.", "Drish inaongoza njia."],
-            ["Kroki stają się ścieżkami.", "Ścieżki stają się trasami.", "Drish wskazuje drogę."],
-            ["Stappen worden paden.", "Paden worden routes.", "Drish wijst de weg."],
-            ["Кроки стають стежками.", "Стежки стають маршрутами.", "Drish вказує шлях."],
-            ["گام‌ها به مسیر تبدیل می‌شوند.", "مسیرها به راه تبدیل می‌شوند.", "Drish راهنمای راه است."],
-            ["צעדים הופכים לשבילים.", "שבילים הופכים למסלולים.", "Drish מוביל את הדרך."]
-        ];
-        let i = 0;
-        const el = document.getElementById('tagline');
-        function show() {
-            const t = taglines[i];
-            el.innerHTML = '<span>' + t[0] + '</span> <span>' + t[1] + '</span> <span>' + t[2] + '</span>';
-            el.classList.add('visible');
-        }
-        function cycle() {
-            el.classList.remove('visible');
-            setTimeout(() => { i = (i + 1) % taglines.length; show(); }, 800);
-        }
-        show();
-        setInterval(cycle, 5000);
-    </script>
+
+<header>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">&#9790;</button>
+</header>
+
+<main>
+  <svg class="emblem" viewBox="0 0 3071 3067" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Drish">
+    <rect x="100" y="100" width="2871" height="2867" rx="300" ry="300" fill="var(--emblem-bg)"/>
+    <text x="1535" y="1533" dominant-baseline="central" text-anchor="middle" style="font-family:'Helvetica Neue','Helvetica',sans-serif;font-weight:700;font-size:850px;fill:white;letter-spacing:40px;">drish</text>
+  </svg>
+
+  <h1>Integrations. Democratized.</h1>
+  <p class="powered-by">Powered by <a href="https://nifi.apache.org/" rel="noopener" target="_blank">Apache NiFi</a></p>
+
+  <form class="cta-form" action="https://formspree.io/f/xbdqdodr" method="POST">
+    <input type="email" name="email" placeholder="Enter your work email" required>
+    <button type="submit">Early access &rarr;</button>
+  </form>
+  <p class="subtext">No commitment. Bring your NiFi flows or start fresh.</p>
+
+</main>
+
+<footer>
+  &copy; 2026 345 Consulting, LLC
+</footer>
+
+<script>
+  function toggleTheme() {
+    var h = document.documentElement;
+    var dark = h.classList.toggle('dark');
+    localStorage.setItem('drish-theme', dark ? 'dark' : 'light');
+    updateToggle(dark);
+  }
+  function updateToggle(dark) {
+    document.querySelector('.theme-toggle').textContent = dark ? '\u2600' : '\u263E';
+  }
+  updateToggle(document.documentElement.classList.contains('dark'));
+</script>
+
 </body>
 </html>
