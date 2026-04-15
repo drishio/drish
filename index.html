@@ -48,7 +48,62 @@
     "name": "345 Consulting, LLC",
     "url": "https://345consulting.llc"
   }
+},
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Drish?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Drish is a managed integration platform powered by Apache NiFi. It provides enterprise-grade data integration with self-serve deployment, transparent pricing, and zero ops burden. Bring your existing NiFi flows or start fresh."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is managed NiFi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Managed NiFi is Apache NiFi hosted and operated as a service, so you get the full power of NiFi's data routing, transformation, and system mediation without managing clusters, JVM tuning, upgrades, or infrastructure. Drish provides managed NiFi with modular connectors, optimized deployment, and per-seat pricing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I bring my existing NiFi flows to Drish?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Drish is fully compatible with Apache NiFi. Your existing flows, NARs, and custom processors work without modification. Import your flow definitions and they run as-is."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is Drish different from Snowflake OpenFlow?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Snowflake OpenFlow (formerly Datavolo) requires a Snowflake subscription and is locked to the Snowflake ecosystem. Drish is standalone, runs anywhere Docker runs, and is available with self-serve pricing starting at $29.99 per seat per month. No Snowflake dependency required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does Drish cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Drish offers transparent, per-seat pricing. A free sandbox tier is available for exploration. Personal plans start at $29.99 per seat per month. Team and Enterprise tiers are available for larger organizations. No hidden fees, no consumption surprises, no 'Contact Sales' required below Enterprise tier."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Drish a fork of Apache NiFi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Drish is powered by Apache NiFi, not a fork. It runs standard NiFi with optimized deployment, a managed hosting layer, and additional features like canvas lock, modular connector selection, and white-label branding. Full NiFi compatibility is maintained."
+      }
+    }
+  ]
 }
+]
 </script>
 
 <style>
@@ -274,6 +329,19 @@
     color: var(--footer);
   }
 
+  /* Screen reader only — visible to crawlers, hidden from UI */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
   /* Mobile */
   @media (max-width: 520px) {
     h1 { font-size: 26px; }
@@ -311,6 +379,29 @@
   <p class="subtext" id="subtext">No commitment. Bring your NiFi flows or start fresh.</p>
 
 </main>
+
+<section class="sr-only" aria-hidden="false">
+  <h2>What is Drish?</h2>
+  <p>Drish is a managed integration platform powered by Apache NiFi. Enterprise integrations, finally democratized. Deploy data pipelines without managing infrastructure, JVM tuning, or cluster operations.</p>
+
+  <h2>Managed Apache NiFi</h2>
+  <p>Apache NiFi is the most powerful open source data integration engine, used by over 4,000 companies worldwide with more than 10 million Docker pulls. NiFi provides visual data routing, transformation, and system mediation with full data provenance. Drish makes NiFi accessible to everyone by eliminating the operational burden that typically requires 40-60% of engineering time.</p>
+
+  <h2>Bring Your NiFi Flows</h2>
+  <p>Drish is fully compatible with Apache NiFi. Import your existing flow definitions, NARs, and custom processors. Everything works without modification. No translation layer, no import magic. Your flows, your extensions, your muscle memory.</p>
+
+  <h2>Who is Drish For?</h2>
+  <p>Integration consultants who want a branded platform for their clients. Small integration shops replacing expensive MuleSoft or Boomi partner programs. Mid-market companies stuck between Zapier and enterprise iPaaS. NiFi users tired of managing clusters. Teams graduating from workflow automation tools like n8n, Make, or Zapier who need real data pipeline capabilities like backpressure, provenance, and high-volume ETL.</p>
+
+  <h2>Drish vs Snowflake OpenFlow</h2>
+  <p>Snowflake acquired Datavolo in November 2024 for $110 million and turned it into Snowflake OpenFlow, which requires a Snowflake subscription. Drish is standalone, cloud-agnostic, and runs anywhere Docker runs. No vendor lock-in. Self-serve pricing starts at $29.99 per seat per month.</p>
+
+  <h2>Drish vs MuleSoft, Informatica, and Boomi</h2>
+  <p>Enterprise integration platforms like MuleSoft ($210K-$300K per year), Informatica ($300K-$800K per year), and Boomi ($30K-$80K per year) use opaque pricing, consumption-based billing, and require lengthy sales cycles. Drish offers transparent per-seat pricing, self-serve deployment, and the full power of Apache NiFi's 300+ processors and connectors.</p>
+
+  <h2>White-Label Integration Platform</h2>
+  <p>Drish's Agency tier lets integration shops deploy a fully branded platform for their clients. Your logo, your domain, your client relationship. A 10-person shop pays $990 per month instead of $10,000+ for MuleSoft partner program fees and certifications.</p>
+</section>
 
 <footer>
   &copy; 2026 345 Consulting, LLC
