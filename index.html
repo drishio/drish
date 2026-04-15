@@ -304,11 +304,11 @@
   <h1>Integrations. Democratized.</h1>
   <p class="powered-by">Powered by <a href="https://nifi.apache.org/" rel="noopener" target="_blank">Apache NiFi</a></p>
 
-  <form class="cta-form" action="https://formspree.io/f/xbdqdodr" method="POST">
+  <form class="cta-form" id="cta-form">
     <input type="email" name="email" placeholder="Enter your email" required>
     <button type="submit">Early access &rarr;</button>
   </form>
-  <p class="subtext">No commitment. Bring your NiFi flows or start fresh.</p>
+  <p class="subtext" id="subtext">No commitment. Bring your NiFi flows or start fresh.</p>
 
 </main>
 
@@ -317,6 +317,34 @@
 </footer>
 
 <script>
+  document.getElementById('cta-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var form = this;
+    var btn = form.querySelector('button');
+    var sub = document.getElementById('subtext');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    fetch('https://formspree.io/f/xbdqdodr', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: form.email.value })
+    }).then(function(r) {
+      if (r.ok) {
+        form.style.display = 'none';
+        sub.textContent = "Thank you. We'll be in touch.";
+        sub.style.color = 'var(--text-heading)';
+      } else {
+        btn.textContent = 'Early access \u2192';
+        btn.disabled = false;
+        sub.textContent = 'Something went wrong. Try again.';
+      }
+    }).catch(function() {
+      btn.textContent = 'Early access \u2192';
+      btn.disabled = false;
+      sub.textContent = 'Something went wrong. Try again.';
+    });
+  });
+
   function toggleTheme() {
     var h = document.documentElement;
     var dark = h.classList.toggle('dark');
