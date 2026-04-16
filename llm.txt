@@ -1,0 +1,26 @@
+# Drish
+
+> Enterprise-grade integrations, finally democratized. Powered by Apache NiFi.
+
+Drish is a managed integration platform powered by [Apache NiFi](https://nifi.apache.org/). Deploy data pipelines without managing infrastructure, JVM tuning, or cluster operations.
+
+## What Drish Does
+
+- Managed Apache NiFi hosting with self-serve deployment
+- Full NiFi compatibility — import existing flows, NARs, and custom processors without modification
+- 300+ processors and connectors out of the box
+- Visual data routing, transformation, and system mediation with full data provenance
+- Modular connector selection, canvas lock, and white-label branding
+
+## Who It's For
+
+- Integration consultants who want a branded platform for their clients
+- Small integration shops replacing expensive partner programs
+- Mid-market companies stuck between workflow tools and enterprise iPaaS
+- NiFi users tired of managing clusters
+- Teams graduating from workflow automation to real data pipeline capabilities
+
+## Links
+
+- Website: https://drish.io
+- Built by [345 Consulting, LLC](https://345consulting.llc)
